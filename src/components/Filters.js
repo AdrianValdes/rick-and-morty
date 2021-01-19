@@ -1,51 +1,63 @@
 import React from "react";
 
-export default function Filters() {
+export default function Filters({
+  name,
+  handleFiltering,
+  handleSetName,
+  filters,
+}) {
   return (
     <div className="filters">
       <button className="random-button">Random Character</button>
-      <form id="filter-form">
+      <form onSubmit={(e) => e.preventDefault()} id="filter-form">
         <div>
           <label htmlFor="filter-name">Character name</label>
-          <input />
-          <button> Search </button>
+          <input name="name" value={name} onChange={handleSetName} />
+          {/*  <button type="submit"> Search </button> */}
         </div>
         <fieldset>
           <legend>Status</legend>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.status === ""}
               name="status"
               className="status-radio"
               type="radio"
               value=""
-              defaultChecked
             />
             All
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
               name="status"
               className="status-radio"
               type="radio"
-              value="Alive"
+              value="alive"
+              checked={filters.status === "alive"}
             />
             Alive
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
               name="status"
               className="status-radio"
               type="radio"
-              value="Dead"
+              value="dead"
+              checked={filters.status === "dead"}
             />
             Dead
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
               name="status"
               className="status-radio"
               type="radio"
-              value="Unknown"
+              value="unknown"
+              checked={filters.status === "unknown"}
             />
             Unknown
           </label>
@@ -55,61 +67,74 @@ export default function Filters() {
           <legend>Species</legend>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.species === ""}
               name="species"
               className="species-radio"
               type="radio"
               value=""
-              defaultChecked
             />
             All
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.species === "human"}
               name="species"
               className="species-radio"
               type="radio"
-              value="Human"
+              value="human"
             />
             Human
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.species === "alien"}
               name="species"
               className="species-radio"
               type="radio"
-              value="Alien"
+              value="alien"
             />
             Alien
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.species === "robot"}
               name="species"
               className="species-radio"
               type="radio"
-              value="Robot"
+              value="robot"
             />
             Robot
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.species === "humanoid"}
               name="species"
               className="species-radio"
               type="radio"
-              value="Humanoid"
+              value="humanoid"
             />
             Humanoid
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.species === "mythological Creature"}
               name="species"
               className="species-radio"
               type="radio"
-              value="Mythological Creature"
+              value="mythological Creature"
             />
             Mythological Creature
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.species === "unknown"}
               name="species"
               className="species-radio"
               type="radio"
@@ -126,43 +151,52 @@ export default function Filters() {
               className="gender-radio"
               type="radio"
               value=""
-              defaultChecked
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.gender === ""}
             />
             All
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.gender === "female"}
               name="gender"
               className="gender-radio"
               type="radio"
-              value="Female"
+              value="female"
             />
             Female
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.gender === "male"}
               name="gender"
               className="gender-radio"
               type="radio"
-              value="Male"
+              value="male"
             />
             Male
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.gender === "genderless"}
               name="gender"
               className="gender-radio"
               type="radio"
-              value="Genderless"
+              value="genderless"
             />
             Genderless
           </label>
           <label>
             <input
+              onChange={(e) => handleFiltering(e)}
+              checked={filters.gender === "unknown"}
               name="gender"
               className="gender-radio"
               type="radio"
-              value="Unknown"
+              value="unknown"
             />
             Unknown
           </label>

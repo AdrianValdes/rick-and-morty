@@ -1,12 +1,14 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
 export default function CharactersList({ characters }) {
+  if (characters === undefined) return <p>No results...</p>;
   return (
-    <main id="content">
+    <main className="content">
       <div className="characters-grid">
-        {characters.map((character) => (
-          <CharacterCard {...character} key={character.id} />
-        ))}
+        {characters &&
+          characters.map((character) => (
+            <CharacterCard {...character} key={character.id} />
+          ))}
       </div>
     </main>
   );

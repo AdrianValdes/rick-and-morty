@@ -5,10 +5,13 @@ export default function Filters({
   handleFiltering,
   handleSetName,
   filters,
+  handleRandomFetch,
 }) {
   return (
     <div className="filters">
-      <button className="random-button">Random Character</button>
+      <button onClick={handleRandomFetch} className="random-button">
+        Random Character
+      </button>
       <form onSubmit={(e) => e.preventDefault()} id="filter-form">
         <div>
           <label htmlFor="filter-name">Character name</label>

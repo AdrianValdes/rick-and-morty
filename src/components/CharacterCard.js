@@ -1,8 +1,8 @@
 import React from "react";
-
+import "../style/App.css";
 export default function CharacterCard({ image, name, species }) {
   return (
-    <div className="card">
+    <div className={species === "Alien" ? "card is-alien" : "card"}>
       <div className="picture-wrap">
         <img src={image} title={name} alt="character" />
       </div>
